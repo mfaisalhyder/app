@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = EnumValidator.class)
 public @interface ValidateEnum {
-    String message() default "{com.spring.app.ValidateEnum.message}";
+    String message() default "{com.spring.app.validator.ValidateEnum.message}";
 
     Class<?>[] groups() default {};
 

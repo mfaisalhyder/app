@@ -1,7 +1,9 @@
 package com.spring.app.dto;
 
+import com.spring.app.constant.BookStatus;
 import com.spring.app.constant.BookTypes;
 import com.spring.app.validator.ValidateEnum;
+import com.spring.app.validator.ValidateKeyValEnum;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -31,6 +33,9 @@ public class BookDTO {
 
     @ValidateEnum(targetClassType = BookTypes.class, message = "Invalid BookType")
     private String type;
+
+    @ValidateKeyValEnum(targetClassType = BookStatus.class, message = "Invalid BookStatus")
+    private Integer status;
 
     @Range(min = 0, max = 1000, message = "Price is required")
     private BigDecimal price;

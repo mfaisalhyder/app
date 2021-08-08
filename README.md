@@ -45,7 +45,7 @@ I have tried my best to use the latest(stable) available libraries!
 #### JUnits
    - execute "**./gradlew test**"
 
-#### Docker
+#### Docker [bootPlugin]
 - To create Docker Image
    - execute **./gradlew bootBuildImage**
 
@@ -62,3 +62,12 @@ I have tried my best to use the latest(stable) available libraries!
     - http://localhost:5555/api/book
     - http://localhost:5555/api/books
     - http://localhost:5555/api/checkout
+
+## Running from Dockerfile
+
+- execute **docker build -t faisal/app**
+- execute **docker run -p 5555:5555 faisal/app**
+- execute **docker run -e "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=\*:5556" -p 5555:5555 --publish 5556:5556 -t faisal/app**
+
+>docker run -e "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=y" -p 5555:5555 -p 5556:5556 -t faisal/app
+>docker run -e "JAVA_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5556" -p 5555:5555 -p 5556:5556 -t faisal/app
